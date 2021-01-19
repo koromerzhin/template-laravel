@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-STACK         := phpfpm
+STACK         := laravel
 NETWORK       := proxynetwork
 WWW           := $(STACK)_phpfpm
 WWWFULLNAME   := $(WWW).1.$$(docker service ps -f 'name=$(PRWWWOXY)' $(WWW) -q --no-trunc | head -n1)
