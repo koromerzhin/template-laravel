@@ -20,8 +20,8 @@ services:
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.www-laravel.rule=Host(`laravel.lxc`, `www.laravel.lxc`)"
-        - "traefik.http.middlewares.wwwredirectregex.redirectregex.regex=^http://laravel.lxc/(.*)"
-        - "traefik.http.middlewares.wwwredirectregex.redirectregex.replacement=http://www.laravel.lxc/$${1}"
+        - "traefik.http.middlewares.laravelredirectregex.redirectregex.regex=^http://laravel.lxc/(.*)"
+        - "traefik.http.middlewares.laravelredirectregex.redirectregex.replacement=http://www.laravel.lxc/$${1}"
         - "traefik.http.routers.www-laravel.entrypoints=web"
         - "traefik.http.services.www-laravel.loadbalancer.server.port=80"
   phpfpm:
