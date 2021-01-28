@@ -30,9 +30,9 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-node
       - name: Cache php packages
-        id: composer cache
+        id: composer-cache
         uses: actions/cache@v2
         with:
           path: |
@@ -47,7 +47,7 @@ jobs:
       - name: Validate composer.json
         run: make composer validate
       - name: Install Composer dependencies
-        if: steps.composer cache.outputs.cache-hit != 'true'
+        if: steps.composer-cache.outputs.cache-hit != 'true'
         run: make composer dev
       - name: linter readme.md
         run: make linter-readme
