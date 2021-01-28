@@ -44,6 +44,10 @@ jobs:
       - name: Install npm dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
         run: make node_modules
+      - name: 'sleep'
+        run: make sleep 60
+      - name: 'docker ls'
+        run: make docker ls
       - name: Validate composer.json
         run: make composer validate
       - name: Install Composer dependencies

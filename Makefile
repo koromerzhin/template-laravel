@@ -10,7 +10,7 @@ PHPFPMFULLNAME := $(PHPFPM).1.$$(docker service ps -f 'name=$(PHPFPM)' $(PHPFPM)
 
 DOCKER_EXECPHP := @docker exec $(PHPFPMFULLNAME)
 
-SUPPORTED_COMMANDS := composer contributors docker logs git linter ssh tests
+SUPPORTED_COMMANDS := composer sleep contributors docker logs git linter ssh tests
 SUPPORTS_MAKE_ARGS := $(findstring $(firstword $(MAKECMDGOALS)), $(SUPPORTED_COMMANDS))
 ifneq "$(SUPPORTS_MAKE_ARGS)" ""
   COMMAND_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
@@ -140,6 +140,9 @@ endif
 
 install: node_modules ## Installation
 	@make docker deploy -i
+
+sleep: ## sleep
+	@sleep  $(COMMAND_ARGS)
 
 linter: ## Scripts Linter
 ifeq ($(COMMAND_ARGS),all)
