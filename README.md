@@ -33,8 +33,7 @@ docker swarm
 
 Hosts:
 
-- 127.0.0.1 laravel.lxc
-- 127.0.0.1 www.laravel.lxc
+- laravel.traefik.me
 
 ## Récupérer les images docker
 
