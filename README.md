@@ -29,12 +29,8 @@ docker swarm
 Hosts:
 
 - laravel.traefik.me
-
-## Récupérer les images docker
-
-``` sh
-make docker image-pull
-```
+- mailhog-laravel.traefik.me
+- phpmyadmin-laravel.traefik.me
 
 ## Install
 

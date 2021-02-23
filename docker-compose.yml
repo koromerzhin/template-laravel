@@ -17,10 +17,10 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.mailhog-drupal.rule=Host(`mailhog-drupal.traefik.me`)"
-        - "traefik.http.routers.mailhog-drupal-tls.tls.domains[0].main=mailhog-drupal.traefik.me"
-        - "traefik.http.routers.mailhog-drupal-tls.tls.domains[0].sans=mailhog-drupal-*.traefik.me"
-        - "traefik.http.services.mailhog-drupal.loadbalancer.server.port=8025"
+        - "traefik.http.routers.mailhog-laravel.rule=Host(`mailhog-laravel.traefik.me`)"
+        - "traefik.http.routers.mailhog-laravel-tls.tls.domains[0].main=mailhog-laravel.traefik.me"
+        - "traefik.http.routers.mailhog-laravel-tls.tls.domains[0].sans=mailhog-laravel-*.traefik.me"
+        - "traefik.http.services.mailhog-laravel.loadbalancer.server.port=8025"
   mariadb:
     image: mariadb:10.5.9
     environment:
@@ -47,10 +47,10 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.phpmyadmin-drupal.rule=Host(`phpmyadmin-drupal.traefik.me`)"
-        - "traefik.http.routers.phpmyadmin-drupal-tls.tls.domains[0].main=phpmyadmin-drupal.traefik.me"
-        - "traefik.http.routers.phpmyadmin-drupal-tls.tls.domains[0].sans=phpmyadmin-drupal-*.traefik.me"
-        - "traefik.http.services.phpmyadmin-drupal.loadbalancer.server.port=80"
+        - "traefik.http.routers.phpmyadmin-laravel.rule=Host(`phpmyadmin-laravel.traefik.me`)"
+        - "traefik.http.routers.phpmyadmin-laravel-tls.tls.domains[0].main=phpmyadmin-laravel.traefik.me"
+        - "traefik.http.routers.phpmyadmin-laravel-tls.tls.domains[0].sans=phpmyadmin-laravel-*.traefik.me"
+        - "traefik.http.services.phpmyadmin-laravel.loadbalancer.server.port=80"
   apache:
     image: httpd
     depends_on:
