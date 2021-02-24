@@ -81,6 +81,10 @@ else
 	@npm run contributors
 endif
 
+.PHONY: sleep
+sleep: ## sleep
+	@sleep  $(COMMAND_ARGS)
+
 docker: isdocker ## Scripts docker
 ifeq ($(COMMAND_ARGS),create-network)
 	@docker network create --driver=overlay $(NETWORK)
@@ -139,9 +143,6 @@ endif
 
 install: node_modules ## Installation
 	@make docker deploy -i
-
-sleep: ## sleep
-	@sleep  $(COMMAND_ARGS)
 
 linter: node_modules isdocker ## Scripts Linter
 ifeq ($(COMMAND_ARGS),all)
