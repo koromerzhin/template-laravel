@@ -16,7 +16,7 @@
         "laravel/tinker": "2.6.0"
     },
     "require-dev": {
-        "facade/ignition": "2.5.13",
+        "facade/ignition": "2.5.14",
         "fakerphp/faker": "1.13.0",
         "laravel/sail": "1.4.3",
         "mockery/mockery": "1.4.3",
