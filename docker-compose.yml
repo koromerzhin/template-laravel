@@ -66,7 +66,7 @@ services:
         - "traefik.http.routers.phpmyadmin-laravel-tls.tls.domains[0].sans=phpmyadmin-laravel-*.traefik.me"
         - "traefik.http.services.phpmyadmin-laravel.loadbalancer.server.port=80"
   apache:
-    image: httpd:2.4.46
+    image: httpd:2.4.48
     depends_on:
       - phpfpm
     volumes:
