@@ -28,7 +28,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.mailhog-laravel.rule=Host(`mailhog-laravel.traefik.me`)"
+        - "traefik.http.routers.mailhog-laravel.rule=HostRegexp(`mailhog-laravel.traefik.me`, `mailhog-laravel.{ip:.*}.traefik.me`)"
         - "traefik.http.routers.mailhog-laravel-tls.tls.domains[0].main=mailhog-laravel.traefik.me"
         - "traefik.http.routers.mailhog-laravel-tls.tls.domains[0].sans=mailhog-laravel-*.traefik.me"
         - "traefik.http.services.mailhog-laravel.loadbalancer.server.port=8025"
@@ -61,7 +61,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.phpmyadmin-laravel.rule=Host(`phpmyadmin-laravel.traefik.me`)"
+        - "traefik.http.routers.phpmyadmin-laravel.rule=HostRegexp(`phpmyadmin-laravel.traefik.me`, `phpmyadmin-laravel.{ip:.*}.traefik.me`)"
         - "traefik.http.routers.phpmyadmin-laravel-tls.tls.domains[0].main=phpmyadmin-laravel.traefik.me"
         - "traefik.http.routers.phpmyadmin-laravel-tls.tls.domains[0].sans=phpmyadmin-laravel-*.traefik.me"
         - "traefik.http.services.phpmyadmin-laravel.loadbalancer.server.port=80"
@@ -78,7 +78,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.laravel.rule=Host(`laravel.traefik.me`)"
+        - "traefik.http.routers.laravel.rule=HostRegexp(`laravel.traefik.me`, `laravel.{ip:.*}.traefik.me`)"
         - "traefik.http.routers.laravel-tls.tls.domains[0].main=laravel.traefik.me"
         - "traefik.http.routers.laravel-tls.tls.domains[0].sans=laravel-*.traefik.me"
         - "traefik.http.services.laravel.loadbalancer.server.port=80"
